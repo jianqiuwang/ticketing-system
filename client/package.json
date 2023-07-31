@@ -15,7 +15,8 @@
     "graphql": "^15.8.0",
     "graphql-tag": "^2.12.6",
     "vue": "^3.2.13",
-    "vue-apollo": "^3.1.0"
+    "vue-apollo": "^3.1.0",
+    "vue-router": "^4.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
