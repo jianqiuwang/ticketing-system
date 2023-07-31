@@ -1,0 +1,59 @@
+<template>
+    <form class="login-form" @submit.prevent="login">
+      <h1 class="form-title">Login</h1>
+      <input class="form-input" v-model="email" type="email" placeholder="Enter Email" />
+      <input class="form-input" v-model="password" type="password" placeholder="Enter Password" />
+      <button class="form-button" type="submit">Login</button>
+    </form>
+  </template>
+  
+  <script>
+  export default {
+    name: 'LoginForm', 
+    data() {
+      return {
+        email: '',
+        password: ''
+      }
+    },
+    methods: {
+      login() {
+     
+      }
+    }
+  }
+  </script>
+  
+  <style scoped>
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .form-title {
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .form-input {
+    padding: 10px;
+    font-size: 1em;
+    width: 50%;
+    box-sizing: border-box;
+  }
+  
+  .form-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .form-button:hover {
+    background-color: #0056b3;
+  }
+  </style>
+  
