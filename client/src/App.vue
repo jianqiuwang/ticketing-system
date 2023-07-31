@@ -1,16 +1,13 @@
 <template>
   <div id="app">
-    <EventSearch></EventSearch>
-    <!-- your other components -->
+    <router-view/>
   </div>
 </template>
 
 <script>
-import EventSearch from './components/EventSearch.vue' // make sure this path is correct
 
 export default {
   components: {
-    EventSearch
   }
 }
 </script>

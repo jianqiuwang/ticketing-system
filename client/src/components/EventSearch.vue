@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'EventSearch', // change the name here
+  name: 'EventSearch', 
   data() {
     return {
       searchQuery: '',
@@ -25,8 +25,6 @@ export default {
   },
   methods: {
     searchEvents() {
-      // Logic to search events based on `this.searchQuery` and `this.category`
-      // You might need to make API call to your server or third-party API
     }
   }
 }
