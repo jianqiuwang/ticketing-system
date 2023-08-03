@@ -5,6 +5,8 @@ class GraphqlController < ApplicationController
   # protect_from_forgery with: :null_session
 
   def execute
+    Rails.logger.info "Query: #{params[:query]}"
+    Rails.logger.info "Variables: #{prepare_variables(params[:variables])}"
     variables = prepare_variables(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]

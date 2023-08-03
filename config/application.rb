@@ -1,6 +1,8 @@
 require_relative "boot"
 
 require "rails/all"
+require 'graphql'
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -23,5 +25,9 @@ module MiniEventTicketingSystem
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.session_store :cookie_store, key: 'mini_ticketing'
+    config.middleware.use ActionDispatch::Cookies  # Required for all session management
+    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
   end
 end

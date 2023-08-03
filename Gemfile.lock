@@ -82,7 +82,13 @@ GEM
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    graphiql-rails (1.9.0)
+      railties
+      sprockets-rails
     graphql (2.0.24)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -101,6 +107,7 @@ GEM
     mini_mime (1.1.2)
     minitest (5.19.0)
     msgpack (1.7.2)
+    multi_xml (0.6.0)
     net-imap (0.3.7)
       date
       net-protocol
@@ -151,6 +158,13 @@ GEM
     rake (13.0.6)
     reline (0.3.7)
       io-console (~> 0.5)
+    sprockets (4.2.0)
+      concurrent-ruby (~> 1.0)
+      rack (>= 2.2.4, < 4)
+    sprockets-rails (3.4.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      sprockets (>= 3.0.0)
     thor (1.2.2)
     timeout (0.4.0)
     tzinfo (2.0.6)
@@ -167,7 +181,9 @@ DEPENDENCIES
   bootsnap
   debug
   dotenv-rails
+  graphiql-rails
   graphql
+  httparty
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)

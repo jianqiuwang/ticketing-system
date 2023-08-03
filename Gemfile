@@ -46,6 +46,11 @@ group :development do
   # gem "spring"
 end
 
+gem 'httparty'
+
+
 gem 'graphql'
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'graphiql-rails'
