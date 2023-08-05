@@ -18,7 +18,7 @@
     },
     methods: {
       signup() {
-        // TODO: Implement signup logic
+       
       }
     }
   }

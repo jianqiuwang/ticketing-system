@@ -5,8 +5,25 @@ module Types
       field :state, String, null: false
       field :country, String, null: false
       field :address, String, null: false
+      def name
+        object["name"]
+      end
   
-      # You can define other fields, like 'id', 'type', etc., as needed.
+      def city
+        object.dig("city", "name")
+      end
+  
+      def state
+        object.dig("state", "name") || "N/A"
+      end
+  
+      def country
+        object.dig("country", "name")
+      end
+  
+      def address
+        object.dig("state", "name") || 'N/A' 
+      end
     end
   end
   
