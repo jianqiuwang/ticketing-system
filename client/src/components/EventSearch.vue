@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>Is user logged in: {{ $store.getters.isLoggedIn }}</p>
     <form class="event-search-form" @submit.prevent="searchEvents">
       <button class="form-button" type="submit">Search</button>
       <select class="form-select" v-model="category">
@@ -25,19 +26,25 @@
         <p><strong>Date:</strong> {{ event.startingDateTime }}</p>
         <p><strong>Price:</strong>
           {{ event.minimalPrice ? `$${event.minimalPrice} - $${event.maximalPrice ? event.maximalPrice : 'N/A'}` : 'Price not available at this time' }}</p>
+          <button v-if="$store.getters.isLoggedIn">Buy</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, watchEffect } from 'vue';
+console.log('Is user logged in:', props.isLoggedIn);
+import { ref,watchEffect, defineProps } from 'vue';
 import { useQuery } from '@vue/apollo-composable';
 import gql from 'graphql-tag';
 
 const searchQuery = ref('');
 const category = ref('');
 const events = ref([]);
+const props = defineProps({
+  isLoggedIn: Boolean,
+});
+
 
 const SEARCH_EVENTS_QUERY = gql`
   query SearchEvents($search: String, $category: String) {
@@ -70,7 +77,7 @@ const { result, onError, refetch } = useQuery(SEARCH_EVENTS_QUERY, {
 });
 
 watchEffect(() => {
-  console.log('GraphQL result:', result.value);
+  console.log('isLoggedIn value:', props.isLoggedIn);
   if (result?.value?.events) {
     console.log('Server response:', result.value.events);
     events.value = result.value.events;
@@ -176,6 +183,4 @@ const searchEvents = () => {
     font-size: 14px;
     margin-bottom: 5px;
 }
-
-
 </style>

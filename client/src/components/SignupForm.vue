@@ -8,20 +8,43 @@
   </template>
   
   <script>
+  import axios from 'axios';
+  
   export default {
-    name: 'SignupForm', 
+    name: 'SignupForm',
     data() {
       return {
         email: '',
-        password: ''
-      }
+        password: '',
+        errorMessage: '',
+      };
     },
     methods: {
       signup() {
-       
-      }
-    }
-  }
+        const url = 'http://localhost:3000/signup';
+        const payload = {
+          email: this.email,
+          password: this.password,
+        };
+  
+        axios
+          .post(url, payload)
+          .then((response) => {
+            // Handle successful signup
+            console.log('Signup successful:', response.data);
+            this.successMessage = 'Signup successful! Redirecting to login...'; 
+            setTimeout(() => {
+              this.$router.push('/login');
+            }, 2000)
+          })
+          .catch((error) => {
+            // Handle error
+            console.error('Signup error:', error);
+            this.errorMessage = 'Signup failed. Please check your information and try again.';
+          });
+      },
+    },
+  };
   </script>
   
   <style scoped>

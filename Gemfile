@@ -56,3 +56,5 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'graphiql-rails'
 
 gem 'rack-cors'
+
+gem 'bcrypt'

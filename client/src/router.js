@@ -6,7 +6,7 @@ import SignupPage from './pages/SignupPage.vue'
 
 const routes = [
   { path: '/', component: HomePage }, // Route for HomePage
-  { path: '/search', component: EventSearch }, // Route for EventSearch component
+  { path: '/search', component: EventSearch, props: true }, // Route for EventSearch component
   { path: '/login', component: LoginPage },
   { path: '/signup', component: SignupPage } 
 ]

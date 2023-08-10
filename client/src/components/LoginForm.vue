@@ -8,20 +8,45 @@
   </template>
   
   <script>
+  import axios from 'axios';
+
   export default {
-    name: 'LoginForm', 
+    name: 'LoginForm',
     data() {
       return {
         email: '',
-        password: ''
-      }
+        password: '',
+        errorMessage: '',
+      };
     },
     methods: {
       login() {
-     
-      }
-    }
-  }
+       
+        const url = 'http://localhost:3000/login';
+  
+        const payload = {
+          email: this.email,
+          password: this.password,
+        };
+  
+        axios
+          .post(url, payload, { withCredentials: true })
+          .then((response) => {
+            console.log('Login successful:', response.data);
+            this.successMessage = 'Login successful! Redirecting to home page...';
+            this.$store.commit('SET_LOGIN_STATE', true);
+            setTimeout(() => {
+              this.$router.push('/'); // Redirect to home page
+            }, 2000);
+          })
+          .catch((error) => {
+            // Handle error
+            console.error('Login error:', error);
+            this.errorMessage = 'Login failed. Please check your email and password.';
+          });
+      },
+    },
+  };
   </script>
   
   <style scoped>
